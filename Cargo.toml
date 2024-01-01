@@ -1,0 +1,37 @@
+[workspace]
+
+members = [
+    "uniffi-bindgen",
+    "cashu-ffi",
+    "cashu-sdk-ffi",
+    "cashu-js",
+    "cashu-sdk-js"
+]
+resolver = "2"
+
+[workspace.package]
+license = "BSD-3-Clause"
+homepage = "https://github.com/thesimplekid/cashu-crab-bindings"
+repository = "https://github.com/thesimplekid/cashu-crab-bindings.git"
+rust-version = "1.70.0" # MSRV
+
+[workspace.metadata]
+authors = ["thesimplekid"]
+edition = "2021"
+description = "cashu-crab"
+readme = "README.md"
+repository = "https://github.com/thesimplekid/cashu-crab-bindings"
+license-file = "LICENSE"
+keywords = ["bitcoin", "e-cash", "cashu"]
+
+[workspace.dependencies]
+cashu  = { path = "../cashu-crab/mnemonic/crates/cashu", features = ["wallet", "mint", "all-nuts"] }
+cashu-sdk  = { path = "../cashu-crab/mnemonic/crates/cashu-sdk", features = ["wallet", "mint", "all-nuts"] }
+serde = { version = "1.0.160", features = ["derive"]}
+serde_json = "1.0.96"
+url = "2.3.1"
+tokio = { version = "1.32", default-features = false }
+tracing = { version = "0.1", default-features = false }
+tracing-subscriber = "0.3"
+uniffi = "0.24"
+thiserror = "1.0.50"
